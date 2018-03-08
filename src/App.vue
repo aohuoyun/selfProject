@@ -1,15 +1,38 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div class="divcss">123456</div>
-    <mt-button type="primary">primary</mt-button>
     <router-view/>
+    <ul class="footer">
+      <li :class="{active:path=='/index'}">
+        <i class="iconfont icon-shouye"></i>
+        <h2>首页</h2>
+      </li>
+      <li :class="{active:path==''}">
+        <i class="iconfont icon-shouye"></i>
+        <h2>全部分类</h2>
+      </li>
+      <li :class="{active:path==''}">
+        <i class="iconfont icon-shouye"></i>
+        <h2>购物车</h2>
+      </li>
+      <li :class="{active:path==''}">
+        <i class="iconfont icon-shouye"></i>
+        <h2>会员中心</h2>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return {
+      path:"/index",
+    }
+  },
+  methods:{
+
+  }
 }
 </script>
 
@@ -20,11 +43,29 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  .divcss{
-    width: 3rem;
-    height: 3rem;
-    background: blue;
+  .footer{
+    width: 100%;
+    height: 1.14rem;
+    position: fixed;
+    bottom: 0;
+    background: #f7f7fa;
+    li{
+      width: 25%;
+      text-align: center;
+      float: left;
+      color: #989898;
+      .iconfont{
+        font-size: 0.4rem;
+        display: inline-block;
+        margin: 0.15rem 0;
+      }
+      h2{
+        font-size: 0.28rem;
+      }
+    }
+    .active{
+      color: #ff5654;
+    }
   }
 }
 </style>

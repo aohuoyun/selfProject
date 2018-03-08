@@ -15,10 +15,11 @@
 /* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
 html{
 	color:#000;
-  margin:0;padding:0;
-	height: 100%;
+    margin:0;padding:0;
+    height: 100%;
+    background: #f1f1f2;
 	-webkit-text-size-adjust: 100%;
-	    -ms-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 	font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 }
 
@@ -161,4 +162,30 @@ button,input{
 }
 i{
 	font-style:normal;
+}
+
+html{ font-size: 312.5%; } 
+@media screen and (max-width:359px) and (orientation:portrait) {
+    html { font-size: 266.67%; } 
+}
+@media screen and (min-width:360px) and (max-width:374px) and (orientation:portrait) {
+    html { font-size: 300%; } 
+}
+@media screen and (min-width:384px) and (max-width:399px) and (orientation:portrait) {
+    html { font-size: 320%; } 
+}
+@media screen and (min-width:400px) and (max-width:413px) and (orientation:portrait) {
+    html { font-size: 333.33%; } 
+}
+@media screen and (min-width:414px) and (max-width:431px) and (orientation:portrait){
+    html { font-size: 345%; }
+}
+@media screen and (min-width:432px) and (max-width:479px) and (orientation:portrait){
+    html { font-size:360%; }
+}
+@media screen and (min-width:480px)and (max-width:639px) and (orientation:portrait){
+   html{ font-size:400%;}
+} 
+@media screen and (min-width:640px) and (orientation:portrait){
+   html{ font-size:533.33%;}
 }
