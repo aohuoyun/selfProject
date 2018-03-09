@@ -7,15 +7,15 @@
         <h2>首页</h2>
       </li>
       <li :class="{active:path==''}">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-fenlei"></i>
         <h2>全部分类</h2>
       </li>
       <li :class="{active:path==''}">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-gouwuche"></i>
         <h2>购物车</h2>
       </li>
       <li :class="{active:path==''}">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-wode"></i>
         <h2>会员中心</h2>
       </li>
     </ul>
@@ -57,7 +57,8 @@ export default {
       .iconfont{
         font-size: 0.4rem;
         display: inline-block;
-        margin: 0.15rem 0;
+        line-height: 0.7rem;
+        /* margin: 0.15rem 0; */
       }
       h2{
         font-size: 0.28rem;
