@@ -47,6 +47,10 @@
         <i class="iconfont icon-gouwuche"></i>
         <h3>冰箱</h3>
       </div>
+      <!-- 商品列表 -->
+      <div class="shoping" v-for="item in 5" :key="item">
+        
+      </div>
     </section>
   </div>
 </template>
@@ -181,6 +185,13 @@ export default {
         font-size: 0.28rem;
         display: inline;
       }
+    }
+    .shoping{
+      width: 3.45rem;
+      height: 5.4rem;
+      margin: 0.2rem 0 0 0.2rem;
+      background: #fff;
+      float: left;
     }
   }
 }

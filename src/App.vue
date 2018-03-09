@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="contentdata">
+      <router-view/>
+    </div>
+    
     <ul class="footer">
       <router-link tag="li" to="/index" class="tab-item">
         <i class="iconfont icon-shouye"></i>
@@ -41,6 +44,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .contentdata{
+    margin-bottom: 1.34rem;
+  }
   .footer {
     width: 100%;
     height: 1.14rem;
