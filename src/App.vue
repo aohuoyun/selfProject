@@ -2,68 +2,66 @@
   <div id="app">
     <router-view/>
     <ul class="footer">
-      <li :class="{active:path=='/index'}">
+      <router-link tag="li" to="/index" class="tab-item">
         <i class="iconfont icon-shouye"></i>
         <h2>首页</h2>
-      </li>
-      <li :class="{active:path==''}">
-        <i class="iconfont icon-shouye"></i>
+      </router-link>
+      <router-link tag="li" to="/classify" class="tab-item">
+        <i class="iconfont icon-suoxiao"></i>
         <h2>全部分类</h2>
-      </li>
-      <li :class="{active:path==''}">
+      </router-link>
+      <router-link tag="li" to="/shoppingcart" class="tab-item">
         <i class="iconfont icon-shouye"></i>
         <h2>购物车</h2>
-      </li>
-      <li :class="{active:path==''}">
+      </router-link>
+      <router-link tag="li" to="/member" class="tab-item">
         <i class="iconfont icon-shouye"></i>
         <h2>会员中心</h2>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  data(){
+  name: "App",
+  data() {
     return {
-      path:"/index",
-    }
+      path: "/index"
+    };
   },
-  methods:{
-
-  }
-}
+  methods: {}
+};
 </script>
 
 <style lang = "scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  .footer{
+  .footer {
     width: 100%;
     height: 1.14rem;
     position: fixed;
     bottom: 0;
     background: #f7f7fa;
-    li{
+    .tab-item {
       width: 25%;
       text-align: center;
       float: left;
       color: #989898;
-      .iconfont{
+      .iconfont {
         font-size: 0.4rem;
         display: inline-block;
         margin: 0.15rem 0;
       }
-      h2{
+      h2 {
         font-size: 0.28rem;
       }
     }
-    .active{
+    .router-link-active {
       color: #ff5654;
     }
   }
