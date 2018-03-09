@@ -7,15 +7,15 @@
         <h2>首页</h2>
       </router-link>
       <router-link tag="li" to="/classify" class="tab-item">
-        <i class="iconfont icon-suoxiao"></i>
+        <i class="iconfont icon-fenlei"></i>
         <h2>全部分类</h2>
       </router-link>
       <router-link tag="li" to="/shoppingcart" class="tab-item">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-gouwuche"></i>
         <h2>购物车</h2>
       </router-link>
       <router-link tag="li" to="/member" class="tab-item">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-wode"></i>
         <h2>会员中心</h2>
       </router-link>
     </ul>
