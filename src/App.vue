@@ -55,7 +55,8 @@ export default {
       .iconfont {
         font-size: 0.4rem;
         display: inline-block;
-        margin: 0.15rem 0;
+        line-height: 0.7rem;
+        /* margin: 0.15rem 0; */
       }
       h2 {
         font-size: 0.28rem;
