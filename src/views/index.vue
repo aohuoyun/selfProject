@@ -14,6 +14,7 @@
     </div>
     <!-- 公告位置 -->
     <div class="notice"></div>
+    <!-- 导航位置 -->
     <ul class="ulList">
       <li>
         <div>
@@ -40,6 +41,13 @@
         <h2>我的资料</h2>
       </li>
     </ul>
+    <section class="shopList">
+      <img src="https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr" alt="">
+      <div class="titles">
+        <i class="iconfont icon-gouwuche"></i>
+        <h3>冰箱</h3>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -148,6 +156,30 @@ export default {
       h2 {
         margin-top: 0.95rem;
         font-size: 0.3rem;
+      }
+    }
+  }
+  .shopList{
+    width: 100%;
+    margin-top: 0.2rem;
+    height: auto;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 4.4rem;
+    }
+    .titles{
+      text-align: center;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      background: #fff;
+      color: #ff5654;
+      i{
+        font-size: 0.4rem;
+      }
+      h3{
+        font-size: 0.28rem;
+        display: inline;
       }
     }
   }
