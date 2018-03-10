@@ -1,9 +1,6 @@
 <template>
   <div id="pageIndex">
-    <div class="seach">
-      <input type="text" class="seachInput" placeholder="请输入关键字搜索">
-      <i class="iconfont icon-sousuo"></i>
-    </div>
+    <search></search>
     <!-- 轮播图位置 -->
     <div class="swiper">
       <mt-swipe :auto="5000">
@@ -60,6 +57,7 @@
   </div>
 </template>
 <script>
+import Seach from '@/components/search/search'
 export default {
   data() {
     return {
@@ -68,25 +66,28 @@ export default {
           id: 0,
           url: "",
           img:
-            "https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr"
+          "https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr"
         },
         {
           id: 1,
           url: "",
           img:
-            "https://fz.fp.ps.netease.com/file/5aa0f21320e3dbddc99647b7iQioi6dc"
+          "https://fz.fp.ps.netease.com/file/5aa0f21320e3dbddc99647b7iQioi6dc"
         },
         {
           id: 2,
           url: "",
           img:
-            "https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr"
+          "https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr"
         }
       ]
     };
   },
   created() {
     console.log(this.recommend);
+  },
+  components: {
+    Seach
   }
 };
 </script>
@@ -95,23 +96,7 @@ export default {
   width: 100%;
   height: auto;
   overflow: hidden;
-  .seach {
-    width: 100%;
-    padding: 0.2rem;
-    position: relative;
-    .seachInput {
-      width: 7.1rem;
-      height: 0.6rem;
-      padding-left: 10px;
-    }
-    .icon-sousuo {
-      font-size: 0.4rem;
-      line-height: 0.4rem;
-      position: absolute;
-      top: 0.3rem;
-      right: 0.3rem;
-    }
-  }
+
   .swiper {
     width: 100%;
     height: 3rem;
@@ -168,42 +153,42 @@ export default {
       }
     }
   }
-  .shopList{
+  .shopList {
     width: 100%;
     margin-top: 0.2rem;
     height: auto;
     overflow: hidden;
-    img{
+    img {
       width: 100%;
       height: 4.4rem;
     }
-    .titles{
+    .titles {
       text-align: center;
       height: 0.8rem;
       line-height: 0.8rem;
       background: #fff;
       color: #ff5654;
-      i{
+      i {
         font-size: 0.4rem;
       }
-      h3{
+      h3 {
         font-size: 0.28rem;
         display: inline;
       }
     }
-    .shoping{
+    .shoping {
       width: 3.45rem;
       height: 5.4rem;
       margin: 0.2rem 0 0 0.2rem;
       background: #fff;
       float: left;
       position: relative;
-      .imgContent{
+      .imgContent {
         width: 100%;
         height: 3.5rem;
         margin-bottom: 0.2rem;
       }
-      h3{
+      h3 {
         height: 0.4rem;
         line-height: 0.4rem;
         text-align: center;
@@ -211,7 +196,7 @@ export default {
         font-size: 0.3rem;
         padding: 0 0.2rem;
       }
-      .price{
+      .price {
         position: absolute;
         bottom: 0.2rem;
         color: #fe4a48;
@@ -220,9 +205,9 @@ export default {
         padding: 0 0.2rem;
         height: 0.5rem;
         line-height: 0.5rem;
-        .buy{
+        .buy {
           width: 0.77rem;
-          border:1px solid #fe4a48;
+          border: 1px solid #fe4a48;
           color: #fe4a48;
           background: #fff;
         }
