@@ -12,7 +12,7 @@
     <!-- 公告位置 -->
     <div class="notice"></div>
     <!-- 导航位置 -->
-    <ul class="ulList">
+    <!-- <ul class="ulList">
       <li>
         <div>
           <i class="iconfont icon-fenlei"></i>
@@ -37,7 +37,7 @@
         </div>
         <h2>我的资料</h2>
       </li>
-    </ul>
+    </ul> -->
     <section class="shopList" v-for="item in 5" :key="item">
       <img src="https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr" alt="">
       <div class="titles">
@@ -45,19 +45,13 @@
         <h3>冰箱</h3>
       </div>
       <!-- 商品列表 -->
-      <div class="shoping" v-for="item in 4" :key="item">
-        <img class="imgContent" src="../assets/img/1.jpg" alt="">
-        <h3>美的多功能冰箱</h3>
-        <div class="price">
-          <span class="fn-left">￥ 2000</span>
-          <button class="buy fn-right">购买</button>
-        </div>
-      </div>
+      <shopcontent></shopcontent>
     </section>
   </div>
 </template>
 <script>
 import Search from '@/components/search/search'
+import shopcontent from '@/components/shop-content'
 export default {
   data() {
     return {
@@ -87,7 +81,8 @@ export default {
     console.log(this.recommend);
   },
   components: {
-    Search
+    Search,
+    shopcontent
   }
 };
 </script>
@@ -174,43 +169,6 @@ export default {
       h3 {
         font-size: 0.28rem;
         display: inline;
-      }
-    }
-    .shoping {
-      width: 3.45rem;
-      height: 5.4rem;
-      margin: 0.2rem 0 0 0.2rem;
-      background: #fff;
-      float: left;
-      position: relative;
-      .imgContent {
-        width: 100%;
-        height: 3.5rem;
-        margin-bottom: 0.2rem;
-      }
-      h3 {
-        height: 0.4rem;
-        line-height: 0.4rem;
-        text-align: center;
-        color: #000;
-        font-size: 0.3rem;
-        padding: 0 0.2rem;
-      }
-      .price {
-        position: absolute;
-        bottom: 0.2rem;
-        color: #fe4a48;
-        width: 100%;
-        font-size: 0.3rem;
-        padding: 0 0.2rem;
-        height: 0.5rem;
-        line-height: 0.5rem;
-        .buy {
-          width: 0.77rem;
-          border: 1px solid #fe4a48;
-          color: #fe4a48;
-          background: #fff;
-        }
       }
     }
   }

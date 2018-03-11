@@ -9,9 +9,9 @@
         <i class="iconfont icon-shouye"></i>
         <h2>首页</h2>
       </router-link>
-      <router-link tag="li" to="/classify" class="tab-item">
+      <router-link tag="li" to="/allshoping" class="tab-item">
         <i class="iconfont icon-fenlei"></i>
-        <h2>全部分类</h2>
+        <h2>全部商品</h2>
       </router-link>
       <router-link tag="li" to="/shoppingcart" class="tab-item">
         <i class="iconfont icon-gouwuche"></i>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/views/index'
-import classify from '@/views/classify'
+import allshoping from '@/views/allshoping'
 import shoppingcart from '@/views/shoppingcart'
 import member from '@/views/member'
 Vue.use(Router)
@@ -18,9 +18,9 @@ export default new Router({
       component: index
     },
     {
-      path: '/classify',
-      name: 'classify',
-      component: classify
+      path: '/allshoping',
+      name: 'allshoping',
+      component: allshoping
     },
     {
       path: '/shoppingcart',
