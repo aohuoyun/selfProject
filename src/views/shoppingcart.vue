@@ -5,12 +5,12 @@
       <a>编辑</a>
     </div>
     <div class="shopList">
-      <div class="spCard" v-for="item in 4" :key="item">
+      <div class="spCard">
         <h2 class="spType">
           <i class="iconfont icon-suo"></i> 自营商品
           <i class="right iconfont icon-xiangyoujiantou"></i>
         </h2>
-        <div class="shopDes" v-for="item in 3" :key="item">
+        <div class="shopDes">
           <div class="check" :class="{active: isActive }" @click="checkshop()">
             <i class="iconfont icon-zhengque"></i>
           </div>
@@ -25,9 +25,11 @@
         </div>
       </div>
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
+import footers from '@/components/footer'
 export default {
   data() {
     return {
@@ -38,6 +40,9 @@ export default {
     checkshop: function(item) {
       this.isActive = !this.isActive;
     }
+  },
+  components: {
+    footers
   }
 };
 </script>
@@ -142,10 +147,11 @@ export default {
           height: .45rem;
           border-right: 1px solid #d8d8d8;
           font-size: .28rem;
-          &:last-child{
+          &:last-child {
             border-right: none;
-          } 
-          &.numadd,&.numsub {
+          }
+          &.numadd,
+          &.numsub {
             line-height: .4rem;
             font-size: .24rem;
             color: #969696;

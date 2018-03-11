@@ -48,7 +48,7 @@
     </ul>
     <div class="sel">
       <ul>
-         <router-link tag="li"  to="/shoppingcart">
+        <router-link tag="li" to="/shoppingcart">
           <a>
             <i class="left iconfont icon-gouwuche"></i>
             <span>我的购物车</span>
@@ -87,10 +87,22 @@
         </li>
       </ul>
     </div>
+    <footers></footers>
   </div>
 </template>
 <script>
-export default {};
+import footers from '@/components/footer'
+export default {
+  data() {
+    return {
+
+    };
+  },
+  components: {
+    footers
+  }
+}
+
 </script>
 <style scoped lang = "scss">
 @import '~@/assets/css/_reset.scss';
