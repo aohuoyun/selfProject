@@ -1,5 +1,5 @@
 <template>
-  <div id="pageIndex">
+  <div id="pageIndex" class="heightauto">
     <search></search>
     <!-- 轮播图位置 -->
     <div class="swiper">
@@ -38,7 +38,7 @@
         <h2>我的资料</h2>
       </li>
     </ul> -->
-    <section class="shopList" v-for="item in 5" :key="item">
+    <section class="shopList heightauto" v-for="item in 5" :key="item">
       <img src="https://fz.fp.ps.netease.com/file/5a9d13d87f9d2a4e86850025o8qhihZr" alt="">
       <div class="titles">
         <i class="iconfont icon-gouwuche"></i>
@@ -88,9 +88,6 @@ export default {
 </script>
 <style scoped lang = "scss">
 #pageIndex {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
 
   .swiper {
     width: 100%;
@@ -149,10 +146,7 @@ export default {
     }
   }
   .shopList {
-    width: 100%;
     margin-top: 0.2rem;
-    height: auto;
-    overflow: hidden;
     img {
       width: 100%;
       height: 4.4rem;

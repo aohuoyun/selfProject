@@ -156,6 +156,11 @@ float:left;
 .fn-right {
 float:right;
 }
+.heightauto{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
 button,input{
 	border:none;
 	outline: none;

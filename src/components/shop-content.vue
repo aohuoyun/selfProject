@@ -22,6 +22,9 @@
 </script>
 <style scoped lang = "scss">
   .shop-content{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
     .shoping {
       width: 3.45rem;
       height: 5.4rem;
