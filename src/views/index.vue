@@ -47,11 +47,13 @@
       <!-- 商品列表 -->
       <shopcontent></shopcontent>
     </section>
+    <footers></footers>
   </div>
 </template>
 <script>
 import Search from '@/components/search/search'
 import shopcontent from '@/components/shop-content'
+import footers from '@/components/footer'
 export default {
   data() {
     return {
@@ -82,7 +84,8 @@ export default {
   },
   components: {
     Search,
-    shopcontent
+    shopcontent,
+    footers
   }
 };
 </script>

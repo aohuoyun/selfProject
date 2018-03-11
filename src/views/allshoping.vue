@@ -33,12 +33,13 @@
     <!-- 商品列表 -->
     <shopcontent :isIndex = "false" class="content"></shopcontent>
     <div class="hades" v-show = "showHades"></div>
-    
+    <footers></footers>
   </div>
 </template>
 <script>
 import Search from '@/components/search/search'
 import shopcontent from '@/components/shop-content'
+import footers from '@/components/footer'
 export default {
   data(){
     return{
@@ -81,9 +82,11 @@ export default {
   components:{
     "search": Search,
     "shopcontent": shopcontent,
+    footers
   },
   methods:{
     activeClick(val){
+       this.typeOneActive = this.typeSecondActive = 0;
       if(val == 4){
         this.index = 0;
         this.showHades = this.showHades ? false : true;
@@ -101,9 +104,11 @@ export default {
       
     },
     cannel(){
+      this.typeOneActive = this.typeSecondActive = 0;
       this.showHades = false;
     },
     submit(){
+      this.typeOneActive = this.typeSecondActive = 0;
       this.showHades = false;
     }
   }
@@ -180,9 +185,8 @@ export default {
         }
         .group-button{
           line-height: 0.8rem;
-          padding-left: 0.3rem;
           span{
-            width: 1rem;
+            width: 30%;
             text-align: center;
             font-size: 0.24rem;
           }
