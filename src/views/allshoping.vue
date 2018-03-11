@@ -13,18 +13,10 @@
         <div class="type-title">请选择分类</div>
         <ul class="heightauto">
           <li>
-            <p>彩电</p>
-            <p>潮流3C</p>
-            <p>生活家电</p>
-            <p>冰洗空调</p>
-            <p>厨房卫浴</p>
-            <p>智能电器</p>
+            <p v-for = "(item,index) in oneType" :key = "index" :class="{'type-active':typeOneActive == item.index}" @click = "selectType(item.index,1)">{{item.title}}</p>
           </li>
           <li>
-            <p>美的</p>
-            <p>格力</p>
-            <p>斯波尔</p>
-            <p>美的</p>
+            <p v-for = "(item,index) in secondType" :key = "index" :class="{'type-active':typeSecondActive == item.index}" @click = "selectType(item.index,2)">{{item.title}}</p>
           </li>
           <li>
             <span>微波炉</span>
@@ -53,6 +45,37 @@ export default {
       bgcolor:"#e7e7e7",
       index:1,
       showHades:false,
+      typeOneActive:0,
+      typeSecondActive:0,
+      oneType:[{
+        index:1,
+        title:"彩电",
+      },{
+        index:2,
+        title:"潮流3C",
+      },{
+        index:3,
+        title:"生活家电",
+      },{
+        index:4,
+        title:"冰洗空调",
+      },{
+        index:5,
+        title:"厨房卫浴",
+      },{
+        index:6,
+        title:"智能电器",
+      }],
+      secondType:[{
+        index:1,
+        title:"美的"
+      },{
+        index:2,
+        title:"格力"
+      },{
+        index:3,
+        title:"苏泊尔"
+      }],
     }
   },
   components:{
@@ -63,11 +86,19 @@ export default {
     activeClick(val){
       if(val == 4){
         this.index = 0;
-        this.showHades = true;
+        this.showHades = this.showHades ? false : true;
       }else{
         this.showHades = false;
         this.index = val;
       }
+    },
+    selectType(val,num){
+      if(num == 1){
+        this.typeOneActive = val;
+      }else{
+        this.typeSecondActive = val;
+      }
+      
     },
     cannel(){
       this.showHades = false;
@@ -119,15 +150,19 @@ export default {
           li{
             border-right: 1px solid #eee;
             width: 30%;
-            height: 5rem;
+            height: 6rem;
             /* height: auto;
             overflow: hidden; */
             float: left;
             padding-bottom: 0.6rem;
             p{
-              height: 0.6rem;
-              line-height: 0.6rem;
+              height: 0.8rem;
+              line-height: 0.8rem;
               font-size: 0.24rem;
+            }
+            .type-active{
+              color: #ff5654;
+              background: #eee;
             }
             span{
               display: block;
