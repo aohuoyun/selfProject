@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-import Seach from '@/components/search/search'
+import Search from '@/components/search/search'
 export default {
   data() {
     return {
@@ -87,7 +87,7 @@ export default {
     console.log(this.recommend);
   },
   components: {
-    Seach
+    Search
   }
 };
 </script>
