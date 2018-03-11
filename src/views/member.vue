@@ -48,11 +48,43 @@
     </ul>
     <div class="sel">
       <ul>
-        <li></li>
-        <li></li>
+         <router-link tag="li"  to="/shoppingcart">
+          <a>
+            <i class="left iconfont icon-gouwuche"></i>
+            <span>我的购物车</span>
+            <i class="right iconfont icon-xiangyoujiantou"></i>
+          </a>
+        </router-link>
+        <li>
+          <a>
+            <i class="left iconfont icon-yiguanzhu"></i>
+            <span>我的关注</span>
+            <i class="right iconfont icon-xiangyoujiantou"></i>
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="left iconfont icon-yduizuji"></i>
+            <span>我的足迹</span>
+            <i class="right iconfont icon-xiangyoujiantou"></i>
+          </a>
+        </li>
       </ul>
       <ul>
-        <li></li>
+        <li>
+          <a>
+            <i class="left iconfont icon-shouhuodizhi"></i>
+            <span>收货地址管理</span>
+            <i class="right iconfont icon-xiangyoujiantou"></i>
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="left iconfont icon-wodejuhuasuan"></i>
+            <span>会员资料设置</span>
+            <i class="right iconfont icon-xiangyoujiantou"></i>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -177,7 +209,7 @@ export default {};
     .icon-wodedingdan {
       float: left;
       margin-top: .2rem;
-      color: #000000;
+      color: #343434;
     }
     .indent {
       float: left;
@@ -218,7 +250,7 @@ export default {};
       h2 {
         line-height: .36rem;
         font-size: 0.28rem;
-        color: #0c0c0c;
+        color: #343434;
       }
     }
   }
@@ -230,8 +262,36 @@ export default {};
         width: 100%;
         height: .8rem;
         background: #ffffff;
-        border-bottom: 1px solid #eeeeee;
         padding: 0 .25rem;
+        >a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-bottom: 1px solid #eeeeee;
+          i {
+            float: left;
+            height: .8rem;
+            line-height: .8rem;
+            font-size: .34rem;
+            color: #6c6c6c;
+            &.right {
+              float: right;
+            }
+          }
+          span {
+            float: left;
+            font-size: .28rm;
+            color: #000000;
+            height: .8rem;
+            line-height: .8rem;
+            margin-left: .1rem;
+          }
+        }
+        &:last-child {
+          >a {
+            border-bottom: none;
+          }
+        }
       }
     }
   }
