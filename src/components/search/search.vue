@@ -1,12 +1,12 @@
 <template>
     <div id="seach">
-        <input type="text" class="seachInput" placeholder="请输入关键字搜索">
+        <input type="text" class="seachInput" :style="[{'background':bgcolor}]" placeholder="请输入关键字搜索">
         <i class="iconfont icon-sousuo"></i>
     </div>
 </template>
 <script>
 export default {
-
+    props:['bgcolor'],
 }
 </script>
 <style scoped lang="scss">
