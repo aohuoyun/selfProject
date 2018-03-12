@@ -80,7 +80,7 @@ export default {
     };
   },
   created() {
-    console.log(this.recommend);
+    // console.log(this.recommend);
   },
   components: {
     Search,
