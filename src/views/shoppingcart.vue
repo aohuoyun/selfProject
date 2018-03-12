@@ -12,12 +12,12 @@
             <i class="right iconfont icon-xiangyoujiantou"></i>
           </h2>
           <div class="shopDes" v-for="(item,index) in item.data" :key="index">
-            <div class="check" :class="{active:checkData.indexOf(item.index) > -1}" @click="checkshop(item.index)">
+            <div class="check" :class="{active:checkData.indexOf(item.id) > -1}" @click="checkshop(item.id)">
               <i class="iconfont icon-zhengque"></i>
             </div>
             <img class="shopImg" src="../assets/img/timg.jpg" alt="">
-            <p class="shopName">浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31</p>
-            <p class="price">￥ 2000</p>
+            <p class="shopName">{{item.name}}</p>
+            <p class="price">￥ {{item.price}}</p>
             <div class="numBox">
               <a class="numsub">-</a>
               <a class="num">10</a>
@@ -27,17 +27,19 @@
         </div>
       </div>
       <div class="account">
-        <div class="check active">
+        <div class="check" :class="{active:checkData.length==allcheckData.length}" @click="allcheck()">
           <i class="iconfont icon-zhengque"></i>
         </div>
         <em class="allcheck">全选</em>
-        <a class="gopay">
-          结算(1)
+        <a class="gopay" :class="{no:checkData.length==0}">
+          结算({{checkData.length}})
         </a>
         <div class="paytext">
-          <p class="allpirce">合计:<i>2000元</i></p>
-          <p class="tip">不含运费</p>
-        </div>     
+          <p class="allprice">合计:
+            <i>{{allPrice}}元</i>
+          </p>
+          <p class="tip">不含运费 </p>
+        </div>
       </div>
     </div>
     <footers></footers>
@@ -49,21 +51,24 @@ export default {
   data() {
     return {
       isActive: true,
-      checkData: [1, 2, 3],
+      checkData: [],
+      allcheckData: [],
+      allPrice: 0,
       goodsData: [
         {
           type: 1,
           data: [
             {
-              index: 1,
+              id: 1,
               name:
                 "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+              price: "2000",
               picUrl: "../assets/img/timg.jpg"
             },
             {
-              index: 2,
-              name:
-                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+              id: 2,
+              name: "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31",
+              price: "3000",
               picUrl: "../assets/img/timg.jpg"
             }
           ]
@@ -72,9 +77,24 @@ export default {
           type: 2,
           data: [
             {
-              index: 3,
+              id: 3,
               name:
                 "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+              price: "4000",
+              picUrl: "../assets/img/timg.jpg"
+            },
+            {
+              id: 5,
+              name:
+                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+              price: "10000",
+              picUrl: "../assets/img/timg.jpg"
+            },
+            {
+              id: 9,
+              name:
+                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+              price: "9000",
               picUrl: "../assets/img/timg.jpg"
             }
           ]
@@ -83,8 +103,9 @@ export default {
     };
   },
   created() {
-    // let arr = ["a", "s", "d", "f"];
-    // console.log(arr.indexOf('a'))
+    let arr = [];
+    this.allcheckData = this.pushalldata(arr);
+    this.calculateprice();
   },
   methods: {
     checkshop: function(id) {
@@ -93,6 +114,39 @@ export default {
       } else {
         this.checkData.push(id);
       }
+      this.calculateprice();
+    },
+    allcheck: function() {
+      let arr = [];
+      if (this.checkData.length == this.allcheckData.length) {
+        this.checkData = [];
+      } else {
+        this.checkData = this.pushalldata(arr);
+      }
+      this.calculateprice();
+    },
+    pushalldata: function(arr) {
+      this.goodsData.forEach((el, index) => {
+        el.data.forEach((el, index) => {
+          arr.push(el.id);
+        });
+      });
+      return arr;
+    },
+    calculateprice: function() {
+      let price = 0;
+      this.checkData.forEach(el => {
+        let id = el;
+        this.goodsData.forEach(el => {
+          el.data.forEach(el => {
+            if (el.id == id) {
+              price += parseInt(el.price);
+              return false;
+            }
+          });
+        });
+      });
+      this.allPrice = price;
     }
   },
   components: {
@@ -263,12 +317,15 @@ export default {
         font-size: 0.32rem;
         text-align: center;
         letter-spacing: 0.02rem;
+        &.no {
+          background: #969696;
+        }
       }
       .paytext {
         float: right;
         margin-right: 0.1rem;
       }
-      .allpirce {
+      .allprice {
         line-height: 0.5rem;
         text-align: right;
         font-size: 0.28rem;
@@ -281,7 +338,8 @@ export default {
       .tip {
         line-height: 0.5rem;
         text-align: right;
-        font-size: 0.26rem;
+        font-size: 0.24rem;
+        color: #949494;
       }
     }
   }
