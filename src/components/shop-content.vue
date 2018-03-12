@@ -1,7 +1,7 @@
 <template>
   <div class="shop-content">
     <!-- 商品列表 -->
-    <div class="shoping" v-for="item in 4" :key="item">
+    <div class="shoping" v-for="item in 4" :key="item" @click = "shopdetail">
       <img class="imgContent" src="../assets/img/1.jpg" alt="">
       <h3>美的系列</h3>
       <div class="price">
@@ -18,6 +18,11 @@
         default:true,
       }
     },
+    methods:{
+      shopdetail(){
+        this.$router.push({"path":"/shopdetail"});
+      }
+    }
   }
 </script>
 <style scoped lang = "scss">
