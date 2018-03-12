@@ -2,13 +2,7 @@
   <div id="pageIndex" class="heightauto">
     <search></search>
     <!-- 轮播图位置 -->
-    <div class="swiper">
-      <mt-swipe :auto="5000">
-        <mt-swipe-item v-for="item in recommend" :key="item.id">
-          <img :src="item.img" alt="">
-        </mt-swipe-item>
-      </mt-swipe>
-    </div>
+    <swiper :recommend = "recommend"></swiper>
     <!-- 公告位置 -->
     <div class="notice"></div>
     <!-- 导航位置 -->
@@ -52,6 +46,7 @@
 </template>
 <script>
 import Search from '@/components/search/search'
+import swiper from '@/components/swiper'
 import shopcontent from '@/components/shop-content'
 import footers from '@/components/footer'
 export default {
@@ -84,6 +79,7 @@ export default {
   },
   components: {
     Search,
+    swiper,
     shopcontent,
     footers
   }
@@ -91,19 +87,6 @@ export default {
 </script>
 <style scoped lang = "scss">
 #pageIndex {
-
-  .swiper {
-    width: 100%;
-    height: 3rem;
-    .mint-swipe-item {
-      width: 100%;
-      height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
   .notice {
     width: 100%;
     height: 0.6rem;

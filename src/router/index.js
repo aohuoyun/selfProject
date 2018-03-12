@@ -4,6 +4,7 @@ import index from '@/views/index'
 import allshoping from '@/views/allshoping'
 import shoppingcart from '@/views/shoppingcart'
 import member from '@/views/member'
+import shopdetail from '@/views/shopdetail'
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +32,11 @@ export default new Router({
       path: '/member',
       name: 'member',
       component: member
+    },
+    {
+      path: '/shopdetail',
+      name: 'shopdetail',
+      component: shopdetail
     }
   ]
 })
