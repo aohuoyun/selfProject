@@ -25,6 +25,7 @@
     position: fixed;
     bottom: 0;
     background: #f7f7fa;
+    z-index:2;
     .tab-item {
       width: 25%;
       text-align: center;
