@@ -121,20 +121,29 @@ export default {
     },
     //全选
     allcheck: function() {
-      this.checkData = [];
-      this.editcheckData = [];
       if (this.isEdit) {
-        for(let i = 0; i<this.data.length;i++){
-          this.checkData.push(this.data[i].id);
+        if(this.checkData.length != this.data.length){
+          this.checkData = [];
+          for(let i = 0; i<this.data.length;i++){
+            this.checkData.push(this.data[i].id);
+          }
+          // 计算总价格
+          this.calculateprice();
+        }else{
+          this.checkData = [];
+          this.allPrice = 0;
         }
-        // 计算总价格
-        this.calculateprice();
+        
       }else{
-        for(let i = 0; i<this.data.length;i++){
-          this.editcheckData.push(this.data[i].id);
+        if(this.editcheckData.length != this.data.length){
+          this.editcheckData = [];
+          for(let i = 0; i<this.data.length;i++){
+            this.editcheckData.push(this.data[i].id);
+          }
+        }else{
+          this.editcheckData = [];
         }
       }
-      
     },
     //计算总价
     calculateprice: function() {
