@@ -1,7 +1,8 @@
 <template>
     <!-- 商品列表 -->
     <div id="address">
-        <h1><i class="iconfont icon-xiangzuojiantou"></i>添加收货地址</h1>
+        <headeres title="添加收货地址"></headeres>
+        <!-- <h1><i class="iconfont icon-xiangzuojiantou"></i>添加收货地址</h1> -->
         <ul class="addessInput">
             <li>
                 <div class="panel">
@@ -32,25 +33,30 @@
     </div>
 </template>
 <script>
-export default {};
+import headeres from "@/components/header"
+export default {
+   components:{
+       headeres
+   }
+};
 </script>
 <style lang="scss" scoped>
 #address {
-  h1 {
-    position: fixed;
-    width: 100%;
-    height: 1rem;
-    background: #ffffff;
-    padding: 0 0.25rem;
-    line-height: 1rem;
-    font-size: 0.34rem;
-    text-align: left;
-    color: #343434;
-    i {
-        font-size: .34rem;
-        margin-right: .2rem;
-    }
-  }
+//   h1 {
+//     position: fixed;
+//     width: 100%;
+//     height: 1rem;
+//     background: #ffffff;
+//     padding: 0 0.25rem;
+//     line-height: 1rem;
+//     font-size: 0.34rem;
+//     text-align: left;
+//     color: #343434;
+//     i {
+//         font-size: .34rem;
+//         margin-right: .2rem;
+//     }
+//   }
   .addessInput {
     padding-top: 1.2rem;
     li {

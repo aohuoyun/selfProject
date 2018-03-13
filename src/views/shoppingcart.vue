@@ -1,6 +1,7 @@
 <template>
   <div id="shopCart">
-    <h1>购物车</h1>
+    <headeres title = "购物车"></headeres>
+    <!-- <h1>购物车</h1> -->
     <div class="cartCon">
       <div class="edit">
         <a @click="edit()">{{isEdit?"编辑":"完成"}}</a>
@@ -41,6 +42,7 @@
   </div>
 </template>
 <script>
+import headeres from "@/components/header"
 import footers from "@/components/footer";
 import changenum from "@/components/change-num"
 export default {
@@ -163,6 +165,7 @@ export default {
     }
   },
   components: {
+    headeres,
     footers,
     changenum
   }

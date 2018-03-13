@@ -1,7 +1,8 @@
 <template>
   <div class="shopDetail heightauto">
+    <headeres title = "商品详情"></headeres>
     <!-- 轮播图位置 -->
-    <swiper :recommend = "recommend"></swiper>
+    <swiper :recommend = "recommend" class="swwiper"></swiper>
     <h2>美的牌变频空调</h2>
     <h5>L4.274.234</h5>
     <h3>
@@ -37,6 +38,7 @@
   </div>
 </template>
 <script>
+import headeres from "@/components/header"
 import footers from '@/components/footer'
 import swiper from '@/components/swiper'
 import detailfooter from '@/components/shop-detail-footer'
@@ -69,6 +71,7 @@ export default {
     };
   },
   components:{
+    headeres,
     swiper,
     detailfooter,
     changenum
@@ -89,7 +92,9 @@ export default {
 </script>
 <style scoped lang = "scss">
   .shopDetail{
-    
+    .swwiper{
+      margin-top: 1rem;
+    }
     h2,h3,h4,h5,.selectNum{
       width: 100%;
       text-align: left;

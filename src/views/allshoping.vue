@@ -1,6 +1,7 @@
 <template>
 <!-- 商品列表 -->
   <div class="all-shoping heightauto">
+    <headeres title="商品列表"></headeres>
     <div class="shop-title heightauto">
       <search :bgcolor = bgcolor></search> 
       <ul class="shop-classify">
@@ -37,6 +38,7 @@
   </div>
 </template>
 <script>
+import headeres from "@/components/header"
 import Search from '@/components/search/search'
 import shopcontent from '@/components/shop-content'
 import footers from '@/components/footer'
@@ -80,6 +82,7 @@ export default {
     }
   },
   components:{
+    headeres,
     "search": Search,
     "shopcontent": shopcontent,
     footers
@@ -119,7 +122,7 @@ export default {
     .shop-title{
       background: #fff;
       position: fixed;
-      top:0;
+      top:1rem;
       z-index:2;
       .shop-classify{
         width: 100%;
@@ -197,7 +200,7 @@ export default {
       }
     }
     .content{
-      margin-top: 1.7rem;
+      margin-top: 2.7rem;
     }
     .hades{
       background: #000;
