@@ -18,11 +18,12 @@
             <img class="shopImg" src="../assets/img/timg.jpg" alt="">
             <p class="shopName">浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31</p>
             <p class="price">￥ 2000</p>
-            <div class="numBox">
+            <changenum></changenum>
+            <!-- <div class="numBox">
               <a class="numsub">-</a>
               <a class="num">10</a>
               <a class="numadd">+</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -45,6 +46,7 @@
 </template>
 <script>
 import footers from "@/components/footer";
+import changenum from "@/components/change-num"
 export default {
   data() {
     return {
@@ -96,7 +98,8 @@ export default {
     }
   },
   components: {
-    footers
+    footers,
+    changenum
   }
 };
 </script>
@@ -191,7 +194,7 @@ export default {
           top: 1.44rem;
           left: 2.6rem;
         }
-        .numBox {
+        /* .numBox {
           position: absolute;
           width: 1.5rem;
           height: 0.45rem;
@@ -216,7 +219,7 @@ export default {
               color: #969696;
             }
           }
-        }
+        } */
       }
     }
     .account {

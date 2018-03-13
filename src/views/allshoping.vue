@@ -204,7 +204,7 @@ export default {
       opacity: 0.5;
       position: fixed;
       top:0;
-      bottom: 1.14rem;
+      bottom: 0;
       left: 0;
       right: 0;
       z-index:1;
