@@ -7,7 +7,7 @@
 </template>
 <script>
   export default{
-    props:['Num'],
+    props:['Num','index'],
     data(){
       return{
         buyNum: 0,
@@ -20,12 +20,19 @@
       lesNum(){
         if(this.buyNum > 1){
           this.buyNum = this.buyNum - 1;
-          this.$emit('changeNum',this.buyNum);
+          this.changeNumCom();
         }
       },
       addNum(){
         this.buyNum = this.buyNum + 1;
-        this.$emit('changeNum',this.buyNum);
+        this.changeNumCom();
+      },
+      changeNumCom(){
+        if(this.index >=0){
+          this.$emit('changeNum',{'buyNum':this.buyNum,'index':this.index});
+        }else{
+          this.$emit('changeNum',this.buyNum);
+        }
       }
     }
   }

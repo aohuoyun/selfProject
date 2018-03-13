@@ -6,30 +6,21 @@
         <a @click="edit()">{{isEdit?"编辑":"完成"}}</a>
       </div>
       <div class="shopList">
-        <div class="spCard" v-for="(item,index) in goodsData" :key="index">
-          <h2 class="spType">
-            <i class="iconfont icon-suo"></i> {{item.type==1 ? '自营商品' : item.type==2 ? '非自营商品' : ''}}
-            <i class="right iconfont icon-xiangyoujiantou"></i>
-          </h2>
-          <div class="shopDes" v-for="(item,index) in item.data" :key="index">
-            <div class="check" :class="{active:checkData.indexOf(item.id) > -1}" @click="checkshop(item.id)" v-show="isEdit">
-              <i class="iconfont icon-zhengque"></i>
-            </div>
-            <div class="check" :class="{active:editcheckData.indexOf(item.id) > -1}" @click="checkshop(item.id)" v-show="!isEdit">
-              <i class="iconfont icon-zhengque"></i>
-            </div>
-            <img class="shopImg" src="../assets/img/timg.jpg" alt="">
-            <p class="shopName">{{item.name}}</p>
-            <p class="price">￥ {{item.price}}</p>
-            <changenum></changenum>
+        <h2 class="spType">
+          <i class="iconfont icon-suo"></i> 选择商品
+        </h2>
+        <div class="shopDes" v-for="(item,index) in data" :key="index">
+          <div class="check" :class="{active:(checkData.indexOf(item.id) > -1 && isEdit) || (editcheckData.indexOf(item.id) > -1 && !isEdit)}" @click="checkshop(item.id)">
+            <i class="iconfont icon-zhengque"></i>
           </div>
+          <img class="shopImg" src="../assets/img/timg.jpg" alt="">
+          <p class="shopName">{{item.name}}</p>
+          <p class="price">￥ {{item.price}}</p>
+          <changenum :Num = "item.num" @changeNum = "getShopNum" :index = "index"></changenum>
         </div>
       </div>
       <div class="account">
-        <div class="check" :class="{active:checkData.length==allcheckData.length}" @click="allcheck()" v-show="isEdit">
-          <i class="iconfont icon-zhengque"></i>
-        </div>
-        <div class="check" :class="{active:editcheckData.length==allcheckData.length}" @click="allcheck()" v-show="!isEdit">
+        <div class="check" :class="{active:(checkData.length == data.length && isEdit) || (editcheckData.length == data.length && !isEdit)}" @click="allcheck()">
           <i class="iconfont icon-zhengque"></i>
         </div>
         <em class="allcheck">全选</em>
@@ -56,64 +47,62 @@ export default {
   data() {
     return {
       isEdit: true,
-      checkData: [],
-      editcheckData: [],
-      allcheckData: [],
+      checkData: [],//选择用于结算的数据
+      editcheckData: [],//选择用于编辑
       allPrice: 0,
-      goodsData: [
+      data: [
         {
-          type: 1,
-          data: [
-            {
-              id: 1,
-              name:
-                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
-              price: "2000",
-              picUrl: "../assets/img/timg.jpg"
-            },
-            {
-              id: 2,
-              name: "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31",
-              price: "3000",
-              picUrl: "../assets/img/timg.jpg"
-            }
-          ]
+          id: 1,
+          name:
+            "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+          price: "2000",
+          picUrl: "../assets/img/timg.jpg",
+          num:1
         },
         {
-          type: 2,
-          data: [
-            {
-              id: 3,
-              name:
-                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
-              price: "4000",
-              picUrl: "../assets/img/timg.jpg"
-            },
-            {
-              id: 5,
-              name:
-                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
-              price: "10000",
-              picUrl: "../assets/img/timg.jpg"
-            },
-            {
-              id: 9,
-              name:
-                "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
-              price: "9000",
-              picUrl: "../assets/img/timg.jpg"
-            }
-          ]
+          id: 2,
+          name: "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31",
+          price: "3000",
+          picUrl: "../assets/img/timg.jpg",
+          num:2
+        },
+        {
+          id: 3,
+          name:
+            "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+          price: "4000",
+          picUrl: "../assets/img/timg.jpg",
+          num:3
+        },
+        {
+          id: 5,
+          name:
+            "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+          price: "10000",
+          picUrl: "../assets/img/timg.jpg",
+          num:4
+        },
+        {
+          id: 9,
+          name:
+            "浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列L4.12.232.31浪琴优雅系列",
+          price: "9000",
+          picUrl: "../assets/img/timg.jpg",
+          num:5
         }
       ]
     };
   },
   created() {
-    let arr = [];
-    this.allcheckData = this.pushalldata(arr);
-    this.calculateprice();
   },
   methods: {
+    getShopNum(val){
+      let index = val.index;
+      //更改对应商品的数量
+      this.data[index].num = val.buyNum;
+      this.calculateprice();
+    },
+    //选择商品
     checkshop: function(id) {
       if (this.isEdit) {
         if (this.checkData.indexOf(id) > -1) {
@@ -130,44 +119,35 @@ export default {
         }
       }
     },
+    //全选
     allcheck: function() {
-      let arr = [];
+      this.checkData = [];
+      this.editcheckData = [];
       if (this.isEdit) {
-        if (this.checkData.length == this.allcheckData.length) {
-          this.checkData = [];
-        } else {
-          this.checkData = this.pushalldata(arr);
+        for(let i = 0; i<this.data.length;i++){
+          this.checkData.push(this.data[i].id);
         }
+        // 计算总价格
         this.calculateprice();
-      } else {
-        if (this.editcheckData.length == this.allcheckData.length) {
-          this.editcheckData = [];
-        } else {
-          this.editcheckData = this.pushalldata(arr);
+      }else{
+        for(let i = 0; i<this.data.length;i++){
+          this.editcheckData.push(this.data[i].id);
         }
       }
+      
     },
-    pushalldata: function(arr) {
-      this.goodsData.forEach((el, index) => {
-        el.data.forEach((el, index) => {
-          arr.push(el.id);
-        });
-      });
-      return arr;
-    },
+    //计算总价
     calculateprice: function() {
-      let price = 0;
-      this.checkData.forEach(el => {
-        let id = el;
-        this.goodsData.forEach(el => {
-          el.data.forEach(el => {
-            if (el.id == id) {
-              price += parseInt(el.price);
+      this.allPrice = 0;
+      if(this.checkData.length > 0){
+        for(let i = 0; i<this.checkData.length; i++){
+          for(let x = 0; x<this.data.length; x++){
+            if(this.checkData[i] == this.data[x].id){
+              this.allPrice += this.data[x].price*this.data[x].num; 
             }
-          });
-        });
-      });
-      this.allPrice = price;
+          }
+        }
+      }
     },
     edit: function() {
       this.isEdit = !this.isEdit;
@@ -270,32 +250,6 @@ export default {
           top: 1.44rem;
           left: 2.6rem;
         }
-        /* .numBox {
-          position: absolute;
-          width: 1.5rem;
-          height: 0.45rem;
-          border: 1px solid #d8d8d8;
-          bottom: 0.25rem;
-          right: 0.25rem;
-          box-sizing: content-box;
-          a {
-            float: left;
-            width: 0.5rem;
-            line-height: 0.45rem;
-            height: 0.45rem;
-            border-right: 1px solid #d8d8d8;
-            font-size: 0.28rem;
-            &:last-child {
-              border-right: none;
-            }
-            &.numadd,
-            &.numsub {
-              line-height: 0.4rem;
-              font-size: 0.24rem;
-              color: #969696;
-            }
-          }
-        } */
       }
     }
     .account {
