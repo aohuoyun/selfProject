@@ -5,11 +5,11 @@ import allshoping from '@/views/allshoping'
 import shoppingcart from '@/views/shoppingcart'
 import member from '@/views/member'
 import shopdetail from '@/views/shopdetail'
+import address from '@/views/address'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       redirect: '/index',
     },
@@ -37,6 +37,11 @@ export default new Router({
       path: '/shopdetail',
       name: 'shopdetail',
       component: shopdetail
+    }, 
+    {
+      path: '/address',
+      name: 'address',
+      component: address
     }
   ]
 })
