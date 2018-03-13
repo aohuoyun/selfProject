@@ -13,13 +13,27 @@
       <h2>购物车</h2>
     </router-link>
     <router-link tag="li" to="" class="tab-item addcom addcart">
-      <h2>加入购物车</h2>
+      <h2 @click = "addcart">加入购物车</h2>
     </router-link>
     <router-link tag="li" to="" class="tab-item addcom lijibuy">
       <h2>立即购买</h2>
     </router-link>
   </ul>
 </template>
+<script>
+  export default{
+    data(){
+      return{
+
+      }
+    },
+    methods:{
+      addcart(){
+        this.$emit('addcart');
+      }
+    }
+  }
+</script>
 <style scoped lang = "scss">
   #shop-footer {
     width: 100%;

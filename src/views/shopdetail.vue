@@ -12,7 +12,7 @@
       <span>快递:包邮</span>
       <span class="shellNum">销量0件</span>
     </h4>
-    <div class="selectNum">
+    <div class="selectNum" @click = "showHades = true">
       <span>请选择 数量</span>
       <i class="iconfont icon-xiangyoujiantou fn-right"></i>
     </div>
@@ -28,12 +28,12 @@
       </div>
       <div class="buyNum">
         <span class="fn-left">数量</span>
-        <changenum></changenum>
+        <changenum :Num = "num" @changeNum = "getshopNum"></changenum>
       </div>
-      <button class="submit">确定</button>
+      <button class="submit" @click = "cannel">确定</button>
     </div>
     
-    <detailfooter v-show = "!showHades"></detailfooter>
+    <detailfooter @addcart = "showHades = true" v-show = "!showHades"></detailfooter>
   </div>
 </template>
 <script>
@@ -44,7 +44,8 @@ import changenum from "@/components/change-num"
 export default {
   data() {
     return {
-      showHades:true,
+      showHades:false,
+      num:1,
       recommend: [
         {
           id: 0,
@@ -78,7 +79,11 @@ export default {
   methods:{
     cannel(){
       this.showHades = false;
-    }
+    },
+    //获取商品数量
+    getshopNum(val){
+      console.log(val);
+    },
   }
 };
 </script>

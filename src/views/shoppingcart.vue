@@ -21,11 +21,7 @@
             <img class="shopImg" src="../assets/img/timg.jpg" alt="">
             <p class="shopName">{{item.name}}</p>
             <p class="price">￥ {{item.price}}</p>
-            <div class="numBox">
-              <a class="numsub">-</a>
-              <a class="num">10</a>
-              <a class="numadd">+</a>
-            </div>
+            <changenum></changenum>
           </div>
         </div>
       </div>
@@ -55,6 +51,7 @@
 </template>
 <script>
 import footers from "@/components/footer";
+import changenum from "@/components/change-num"
 export default {
   data() {
     return {
@@ -177,7 +174,8 @@ export default {
     }
   },
   components: {
-    footers
+    footers,
+    changenum
   }
 };
 </script>
@@ -272,7 +270,7 @@ export default {
           top: 1.44rem;
           left: 2.6rem;
         }
-        .numBox {
+        /* .numBox {
           position: absolute;
           width: 1.5rem;
           height: 0.45rem;
@@ -297,7 +295,7 @@ export default {
               color: #969696;
             }
           }
-        }
+        } */
       }
     }
     .account {

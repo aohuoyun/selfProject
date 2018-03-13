@@ -1,10 +1,35 @@
 <template>
   <div class="numBox">
-    <a class="numsub">-</a>
-    <a class="num">1000</a>
-    <a class="numadd">+</a>
+    <a class="numsub" @click = "lesNum">-</a>
+    <a class="num">{{buyNum}}</a>
+    <a class="numadd" @click = "addNum">+</a>
   </div>
 </template>
+<script>
+  export default{
+    props:['Num'],
+    data(){
+      return{
+        buyNum: 0,
+      }
+    },
+    created(){
+      this.buyNum = this.Num;
+    },
+    methods:{
+      lesNum(){
+        if(this.buyNum > 1){
+          this.buyNum = this.buyNum - 1;
+          this.$emit('changeNum',this.buyNum);
+        }
+      },
+      addNum(){
+        this.buyNum = this.buyNum + 1;
+        this.$emit('changeNum',this.buyNum);
+      }
+    }
+  }
+</script>
 <style scoped lang = "scss">
   .numBox {
     position: absolute;
