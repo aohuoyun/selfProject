@@ -71,13 +71,13 @@
         </li>
       </ul>
       <ul>
-        <li>
+        <router-link tag="li" to="/address">
           <a>
             <i class="left iconfont icon-shouhuodizhi"></i>
             <span>收货地址管理</span>
             <i class="right iconfont icon-xiangyoujiantou"></i>
           </a>
-        </li>
+        </router-link>
         <li>
           <a>
             <i class="left iconfont icon-wodejuhuasuan"></i>
@@ -91,21 +91,18 @@
   </div>
 </template>
 <script>
-import footers from '@/components/footer'
+import footers from "@/components/footer";
 export default {
   data() {
-    return {
-
-    };
+    return {};
   },
   components: {
     footers
   }
-}
-
+};
 </script>
 <style scoped lang = "scss">
-@import '~@/assets/css/_reset.scss';
+@import "~@/assets/css/_reset.scss";
 #memberCenter {
   width: 100%;
   height: auto;
@@ -114,48 +111,48 @@ export default {
     width: 100%;
     height: 3.75rem;
     background: #ff5752;
-    padding-top: .3rem;
+    padding-top: 0.3rem;
     overflow: auto;
     h2 {
       width: 6.8rem;
       margin: 0 auto;
       text-align: left;
-      font-size: .34rem;
+      font-size: 0.34rem;
       color: #ffffff;
     }
     .userinfo {
       width: 6.8rem;
       height: 1.8rem;
-      margin: .8rem auto 0;
+      margin: 0.8rem auto 0;
       li {
         float: left;
         &.riches {
           width: 1.6rem;
           height: 1.8rem;
           h3 {
-            font-size: .28rem;
+            font-size: 0.28rem;
             text-align: center;
             color: #ffffff;
-            line-height: .4rem;
-            margin-top: .3rem;
+            line-height: 0.4rem;
+            margin-top: 0.3rem;
           }
           p {
-            font-size: .26rem;
+            font-size: 0.26rem;
             text-align: center;
             color: #fef634;
-            line-height: .3rem;
+            line-height: 0.3rem;
           }
           a {
             display: block;
-            font-size: .26rem;
+            font-size: 0.26rem;
             width: 1.04rem;
-            height: .4rem;
+            height: 0.4rem;
             text-align: center;
-            line-height: .4rem;
+            line-height: 0.4rem;
             border: 1px solid #ffffff;
             color: #ffffff;
-            border-radius: .2rem;
-            margin: .1rem auto 0;
+            border-radius: 0.2rem;
+            margin: 0.1rem auto 0;
           }
         }
         &.buddha {
@@ -165,42 +162,42 @@ export default {
             width: 1.02rem;
             height: 1.02rem;
             border: 1px solid #ffffff;
-            border-radius: .51rem;
+            border-radius: 0.51rem;
             margin: 0 auto;
             img {
               width: 100%;
               height: 100%;
-              border-radius: 1.02rem
+              border-radius: 1.02rem;
             }
           }
           .uname {
-            font-size: .26rem;
+            font-size: 0.26rem;
             color: #ffffff;
-            line-height: .3rem;
-            margin-top: .1rem;
+            line-height: 0.3rem;
+            margin-top: 0.1rem;
           }
           .ulevel {
-            font-size: .26rem;
+            font-size: 0.26rem;
             color: #ffffff;
-            line-height: .3rem;
-            margin-top: .1rem;
+            line-height: 0.3rem;
+            margin-top: 0.1rem;
           }
         }
         &.integral {
           width: 1.6rem;
           height: 1.8rem;
           h3 {
-            font-size: .28rem;
+            font-size: 0.28rem;
             text-align: center;
             color: #ffffff;
-            line-height: .4rem;
-            margin-top: .3rem;
+            line-height: 0.4rem;
+            margin-top: 0.3rem;
           }
           p {
-            font-size: .26rem;
+            font-size: 0.26rem;
             text-align: center;
             color: #fef634;
-            line-height: .3rem;
+            line-height: 0.3rem;
           }
         }
       }
@@ -208,39 +205,39 @@ export default {
   }
   .circle {
     width: 100%;
-    height: .34rem;
-    background: #ffffff url('../assets/img/yuan.png') no-repeat;
+    height: 0.34rem;
+    background: #ffffff url("../assets/img/yuan.png") no-repeat;
     background-size: 100% 100%;
   }
   .myIndent {
     width: 100%;
-    height: .78rem;
+    height: 0.78rem;
     background: #ffffff;
     border-bottom: 1px solid #eeeeee;
-    padding: 0 .25rem;
+    padding: 0 0.25rem;
     .icon-wodedingdan {
       float: left;
-      margin-top: .2rem;
+      margin-top: 0.2rem;
       color: #343434;
     }
     .indent {
       float: left;
-      height: .78rem;
-      line-height: .78rem;
-      margin-left: .12rem;
-      font-size: .28rem;
+      height: 0.78rem;
+      line-height: 0.78rem;
+      margin-left: 0.12rem;
+      font-size: 0.28rem;
     }
     .icon-xiangyoujiantou {
       float: right;
-      margin-top: .2rem;
+      margin-top: 0.2rem;
       color: #949494;
     }
     .allindent {
       float: right;
-      height: .78rem;
-      line-height: .78rem;
-      margin-right: .12rem;
-      font-size: .26rem;
+      height: 0.78rem;
+      line-height: 0.78rem;
+      margin-right: 0.12rem;
+      font-size: 0.26rem;
       color: #949494;
     }
   }
@@ -257,10 +254,10 @@ export default {
         font-size: 0.6rem;
         display: inline-block;
         line-height: 0.7rem;
-        margin-top: .24rem;
+        margin-top: 0.24rem;
       }
       h2 {
-        line-height: .36rem;
+        line-height: 0.36rem;
         font-size: 0.28rem;
         color: #343434;
       }
@@ -269,22 +266,22 @@ export default {
   .sel {
     ul {
       width: 100%;
-      margin-top: .2rem;
+      margin-top: 0.2rem;
       li {
         width: 100%;
-        height: .8rem;
+        height: 0.8rem;
         background: #ffffff;
-        padding: 0 .25rem;
-        >a {
+        padding: 0 0.25rem;
+        > a {
           display: block;
           width: 100%;
           height: 100%;
           border-bottom: 1px solid #eeeeee;
           i {
             float: left;
-            height: .8rem;
-            line-height: .8rem;
-            font-size: .34rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.34rem;
             color: #6c6c6c;
             &.right {
               float: right;
@@ -292,15 +289,15 @@ export default {
           }
           span {
             float: left;
-            font-size: .28rm;
+            font-size: 0.28rm;
             color: #000000;
-            height: .8rem;
-            line-height: .8rem;
-            margin-left: .1rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            margin-left: 0.1rem;
           }
         }
         &:last-child {
-          >a {
+          > a {
             border-bottom: none;
           }
         }
