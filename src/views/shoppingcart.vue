@@ -3,7 +3,7 @@
     <h1>购物车</h1>
     <div class="cartCon">
       <div class="edit">
-        <a>编辑</a>
+        <a @click="edit()">{{isEdit?"编辑":"完成"}}</a>
       </div>
       <div class="shopList">
         <div class="spCard" v-for="(item,index) in goodsData" :key="index">
@@ -12,7 +12,10 @@
             <i class="right iconfont icon-xiangyoujiantou"></i>
           </h2>
           <div class="shopDes" v-for="(item,index) in item.data" :key="index">
-            <div class="check" :class="{active:checkData.indexOf(item.id) > -1}" @click="checkshop(item.id)">
+            <div class="check" :class="{active:checkData.indexOf(item.id) > -1}" @click="checkshop(item.id)" v-show="isEdit">
+              <i class="iconfont icon-zhengque"></i>
+            </div>
+            <div class="check" :class="{active:editcheckData.indexOf(item.id) > -1}" @click="checkshop(item.id)" v-show="!isEdit">
               <i class="iconfont icon-zhengque"></i>
             </div>
             <img class="shopImg" src="../assets/img/timg.jpg" alt="">
@@ -27,19 +30,24 @@
         </div>
       </div>
       <div class="account">
-        <div class="check" :class="{active:checkData.length==allcheckData.length}" @click="allcheck()">
+        <div class="check" :class="{active:checkData.length==allcheckData.length}" @click="allcheck()" v-show="isEdit">
+          <i class="iconfont icon-zhengque"></i>
+        </div>
+        <div class="check" :class="{active:editcheckData.length==allcheckData.length}" @click="allcheck()" v-show="!isEdit">
           <i class="iconfont icon-zhengque"></i>
         </div>
         <em class="allcheck">全选</em>
-        <a class="gopay" :class="{no:checkData.length==0}">
+        <a class="gopay" :class="{no:checkData.length==0}" v-show="isEdit">
           结算({{checkData.length}})
         </a>
-        <div class="paytext">
+        <div class="paytext" v-show="isEdit">
           <p class="allprice">合计:
             <i>{{allPrice}}元</i>
           </p>
           <p class="tip">不含运费 </p>
         </div>
+        <a class="delete" :class="{no:editcheckData.length==0}" v-show="!isEdit">删除</a>
+        <a class="toLike" :class="{no:editcheckData.length==0}" v-show="!isEdit">移到关注</a>
       </div>
     </div>
     <footers></footers>
@@ -50,8 +58,9 @@ import footers from "@/components/footer";
 export default {
   data() {
     return {
-      isActive: true,
+      isEdit: true,
       checkData: [],
+      editcheckData: [],
       allcheckData: [],
       allPrice: 0,
       goodsData: [
@@ -109,21 +118,37 @@ export default {
   },
   methods: {
     checkshop: function(id) {
-      if (this.checkData.indexOf(id) > -1) {
-        this.checkData.splice(this.checkData.indexOf(id), 1);
+      if (this.isEdit) {
+        if (this.checkData.indexOf(id) > -1) {
+          this.checkData.splice(this.checkData.indexOf(id), 1);
+        } else {
+          this.checkData.push(id);
+        }
+        this.calculateprice();
       } else {
-        this.checkData.push(id);
+        if (this.editcheckData.indexOf(id) > -1) {
+          this.editcheckData.splice(this.editcheckData.indexOf(id), 1);
+        } else {
+          this.editcheckData.push(id);
+        }
       }
-      this.calculateprice();
     },
     allcheck: function() {
       let arr = [];
-      if (this.checkData.length == this.allcheckData.length) {
-        this.checkData = [];
+      if (this.isEdit) {
+        if (this.checkData.length == this.allcheckData.length) {
+          this.checkData = [];
+        } else {
+          this.checkData = this.pushalldata(arr);
+        }
+        this.calculateprice();
       } else {
-        this.checkData = this.pushalldata(arr);
+        if (this.editcheckData.length == this.allcheckData.length) {
+          this.editcheckData = [];
+        } else {
+          this.editcheckData = this.pushalldata(arr);
+        }
       }
-      this.calculateprice();
     },
     pushalldata: function(arr) {
       this.goodsData.forEach((el, index) => {
@@ -141,12 +166,14 @@ export default {
           el.data.forEach(el => {
             if (el.id == id) {
               price += parseInt(el.price);
-              return false;
             }
           });
         });
       });
       this.allPrice = price;
+    },
+    edit: function() {
+      this.isEdit = !this.isEdit;
     }
   },
   components: {
@@ -340,6 +367,34 @@ export default {
         text-align: right;
         font-size: 0.24rem;
         color: #949494;
+      }
+      .delete {
+        width: 2rem;
+        height: 1rem;
+        float: right;
+        background: #ff5752;
+        color: #ffffff;
+        line-height: 1rem;
+        font-size: 0.32rem;
+        text-align: center;
+        letter-spacing: 0.02rem;
+        &.no {
+          background: #969696;
+        }
+      }
+      .toLike {
+        width: 2rem;
+        height: 1rem;
+        float: right;
+        background: #ff9602;
+        color: #ffffff;
+        line-height: 1rem;
+        font-size: 0.32rem;
+        text-align: center;
+        letter-spacing: 0.02rem;
+        &.no {
+          background: #969696;
+        }
       }
     }
   }
