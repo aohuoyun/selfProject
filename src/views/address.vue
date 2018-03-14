@@ -1,45 +1,45 @@
 <template>
-    <!-- 商品列表 -->
-    <div id="address">
-        <headeres title="添加收货地址"></headeres>
-        <!-- <h1><i class="iconfont icon-xiangzuojiantou"></i>添加收货地址</h1> -->
-        <ul class="addessInput">
-            <li>
-                <div class="panel">
-                    <span>收件人</span>
-                    <input type="text" v-model="recipients" placeholder="收件人">
-                </div>
-            </li>
-            <li>
-                <div class="panel">
-                    <span>联系电话</span>
-                    <input type="tel" v-model="phone" maxlength="11" placeholder="联系电话">
-                </div>
-            </li>
-            <li>
-                <div class="panel">
-                    <span>所在地区</span>
-                    <div @click="showseladds()">{{sureAddress==""?"请选择所在地区":sureAddress}}</div>
-                </div>
-            </li>
-            <li>
-                <div class="panel">
-                    <span>详细地址</span>
-                    <input type="text" v-model="detailaddress"  placeholder="街道，楼牌号等">
-                </div>
-            </li>
-        </ul>
-        <a href="javascript:;" class="saveAdd">保存地址</a>
-        <mt-popup v-model="popupVisible" position="bottom">
-            <div class="op">
-                <a class="close" @click="closeadds()">取消</a>
-                <a class="submit" @click="sureadds()">确定</a>
-            </div>
-            <div class="seladds">
-                <mt-picker :slots="myAddressSlots" @change="onValuesChange"></mt-picker>
-            </div>
-        </mt-popup>
-    </div>
+  <!-- 商品列表 -->
+  <div id="address">
+    <headeres title="添加收货地址"></headeres>
+    <!-- <h1><i class="iconfont icon-xiangzuojiantou"></i>添加收货地址</h1> -->
+    <ul class="addessInput">
+      <li>
+        <div class="panel">
+          <span>收件人</span>
+          <input type="text" v-model="recipients" placeholder="收件人">
+        </div>
+      </li>
+      <li>
+        <div class="panel">
+          <span>联系电话</span>
+          <input type="tel" v-model="phone" maxlength="11" placeholder="联系电话">
+        </div>
+      </li>
+      <li>
+        <div class="panel">
+          <span>所在地区</span>
+          <div @click="showseladds()">{{sureAddress==""?"请选择所在地区":sureAddress}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="panel">
+          <span>详细地址</span>
+          <input type="text" v-model="detailaddress" placeholder="街道，楼牌号等">
+        </div>
+      </li>
+    </ul>
+    <a href="javascript:;" class="saveAdd">保存地址</a>
+    <mt-popup v-model="popupVisible" position="bottom">
+      <div class="op">
+        <a class="close" @click="closeadds()">取消</a>
+        <a class="submit" @click="sureadds()">确定</a>
+      </div>
+      <div class="seladds">
+        <mt-picker :slots="myAddressSlots" @change="onValuesChange"></mt-picker>
+      </div>
+    </mt-popup>
+  </div>
 </template>
 <script>
 import headeres from "@/components/header";
@@ -48,9 +48,9 @@ export default {
   data() {
     return {
       popupVisible: false,
-      recipients:"",
-      phone:"",
-      detailaddress:"",
+      recipients: "",
+      phone: "",
+      detailaddress: "",
       sureAddress: "",
       checkAddress: "",
       myAddressSlots: [
@@ -180,14 +180,15 @@ export default {
         float: left;
         height: 0.8rem;
         line-height: 0.8rem;
-        margin-left: 0.2rem;
+        margin-left: 1.5rem;
+        color: #26a2ff;
       }
       &.submit {
         float: right;
         height: 0.8rem;
         line-height: 0.8rem;
-        margin-right: 0.2rem;
-        color: #3afd93;
+        margin-right: 1.5rem;
+        color: #26a2ff;
       }
     }
   }

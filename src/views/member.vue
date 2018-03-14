@@ -78,13 +78,13 @@
             <i class="right iconfont icon-xiangyoujiantou"></i>
           </a>
         </router-link>
-        <li>
+        <router-link tag="li" to="/userinfo">
           <a>
             <i class="left iconfont icon-wodejuhuasuan"></i>
             <span>会员资料设置</span>
             <i class="right iconfont icon-xiangyoujiantou"></i>
           </a>
-        </li>
+        </router-link>
       </ul>
     </div>
     <footers></footers>
