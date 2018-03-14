@@ -25,9 +25,9 @@
           <i class="iconfont icon-zhengque"></i>
         </div>
         <em class="allcheck">全选</em>
-        <a class="gopay" :class="{no:checkData.length==0}" v-show="isEdit">
+        <div class="gopay" :class="{no:checkData.length==0}" v-show="isEdit" @click ="gopay">
           结算({{checkData.length}})
-        </a>
+        </div>
         <div class="paytext" v-show="isEdit">
           <p class="allprice">合计:
             <i>{{allPrice}}元</i>
@@ -103,6 +103,9 @@ export default {
       //更改对应商品的数量
       this.data[index].num = val.buyNum;
       this.calculateprice();
+    },
+    gopay(){
+      this.$router.push("/confirmOrder");
     },
     //选择商品
     checkshop: function(id) {

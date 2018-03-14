@@ -15,7 +15,7 @@
     <router-link tag="li" to="" class="tab-item addcom addcart">
       <h2 @click = "addcart">加入购物车</h2>
     </router-link>
-    <router-link tag="li" to="" class="tab-item addcom lijibuy">
+    <router-link tag="li" to="/confirmOrder" class="tab-item addcom lijibuy">
       <h2>立即购买</h2>
     </router-link>
   </ul>
